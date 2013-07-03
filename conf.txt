@@ -162,6 +162,10 @@ tem um arquivo de exemplo que posso dar CP , instalar uns temas do SLIM que poss
 
 
 
+
+<ebrandi> se for usar o .vim do docbr, so lembra de desligar a linha que faz o sed dos acentos
+http://forums.freebsd.org/showthread.php?t=32775
+
 ctrl + alt + f2 mata o x
 
 [18:12] <MarconM> como eu faço para instalar o dualboot
@@ -206,24 +210,16 @@ ctrl + alt + f2 mata o x
 [21:30] <loos> com um pouco de trabalho os tplink wr1043 funcionamc com freebsd
 [21:31] <loos> diz a lenda que se voce procurar pode conseguir a firmware pronta pra ele
 
-
-
-
 [20:22] <garga> vc tem que instalar o port do driver de video da intel
 [20:22] <garga> jah instalou?
-
 [20:24] <garga> tem a intel29 tambÃ©m
 [20:25] <garga> tenta instalar ele
-
-
-
-
-
 
 ================================
 ################################
 
-configuracao wireless
+ -| configuracao wireless |-
+
 inclui no
 vi /boot/loader.conf
 
@@ -239,21 +235,13 @@ reboot
 # ifconfig wlan0 up scan
 # ifconfig wlan0 list scan
 
-no rc.conf incluo
-wlans_ath0      = "wlan0"
-ifconfig_wlan0  = "WPA DHCP"
-
-em seguida
-
-incluio no
-vi /etc/wpa_supplicant.conf
+em seguida incluio no vi /etc/wpa_supplicant.conf
 network = {
 	ssid = "emerson"
 	psk  = "senha"
 }
 
-entao inclui no
-vi /etc/rc.conf
+entao inclui no vi /etc/rc.conf
 wlans_ath0     = "wlan0"
 ifconfig_wlan0 = "WPA DHCP"
 
@@ -264,7 +252,3 @@ e fé em DEUS
 
 ================================
 ################################
-<ebrandi> se for usar o .vim do docbr, so lembra de desligar a linha que faz o sed dos acentos
-
-
-http://forums.freebsd.org/showthread.php?t=32775
