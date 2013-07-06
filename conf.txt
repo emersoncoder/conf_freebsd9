@@ -41,48 +41,27 @@ nesse 'checkout' do svn já vem tudo, kernel + base system
 8.3  - Xorg -config xorg.conf.new -retro
 8.4  - cp xorg.conf.new /etc/X11/xorg.conf
 
+================================
+################################
 
-xorg hald e dbus
-enable = "YES"
+vi /etc/rc.conf
 
+keymap="br275.iso.kbd"
+hostname="paladin"
+ifconfig_(PLACA DE REDE)="DHCP"
+wlans_ath0="wlan0"
+ifconfig_wlan0="WPA DHCP"(placa wireless wpa autenticacao e dhcp pegar ip)
+sshd_enale="YES"
+dumpdev="AUTO"
 
-
-pkg_add -rv dbus hald
-
-
-
+================================
+################################
 
 ATIVAR O SOM
 
 kldload snd_driver
 cat /dev/sndstat
 vi /etc/rc.conf -> kldload snd_driver
-
-================================
-################################
-
-vi /etc/rc.conf
-
-keymap     = "br275.iso.kbd"
-hostname   = "paladin"
-
-ifconfig_(PLACA DE REDE) = "DHCP"
-
-wlans_ath0     = "wlan0"
-ifconfig_wlan0 = "WPA DHCP"(placa wireless wpa autenticacao e dhcp pegar ip)
-sshd_enale     = "YES"
-dumpdev        = "AUTO"
-
-================================
-################################
-
-vi /boot/loader.conf
-
-if_ath_load    = "YES"
-if_wi_load     = "YES"
-wlan_wep_load  = "YES"
-wlan_ccmp_load = "YES"
-wlan_tkip_load = "YES"
 
 ================================
 ################################
@@ -160,6 +139,8 @@ copiar o .cshrc que esta no ROOT e tambem usar o VIPW para editar o shell do seu
 Configurar o slim.conf no /usr/local/etc 
 tem um arquivo de exemplo que posso dar CP , instalar uns temas do SLIM que posso no SLIM.CONF apontar para ele depois que instala o SLIM-THEMES
 
+Command to add an existing user ("userlogin") to the wheel group:
+$ pw group mod wheel -m userlogin
 
 
 
@@ -194,26 +175,6 @@ ctrl + alt + f2 mata o x
 
 [19:23] <egypcio> visse o PACKAGEROOT, pra alterar, pala?
 [17:50] <@egypcio> setenv PACKAGEROOT 
-
-[19:55] <Rudolf> Mirc é Irssi
-[19:55] <Rudolf> IM é Bitlbee + Irssi
-
-[21:19] <SOUL_OF_R00T> to pensando  usar uma placa velha sem vga pra fazer um freebsd wireless router...em
-[21:23] <H3ruS> legal
-[21:23] <H3ruS> eu qero testar aquele pcusb
-[21:23] <H3ruS> =D
-[21:24] <H3ruS> PC-USB
-[21:24] <H3ruS> 50,--
-[21:24] <H3ruS> 50,00
-[21:27] <loos> SOUL_OF_R00T: acho que nao liga sem placa de video
-[21:28] <loos> ja as placas da soekris funcionam bem
-[21:30] <loos> com um pouco de trabalho os tplink wr1043 funcionamc com freebsd
-[21:31] <loos> diz a lenda que se voce procurar pode conseguir a firmware pronta pra ele
-
-[20:22] <garga> vc tem que instalar o port do driver de video da intel
-[20:22] <garga> jah instalou?
-[20:24] <garga> tem a intel29 tambÃ©m
-[20:25] <garga> tenta instalar ele
 
 ================================
 ################################
