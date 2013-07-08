@@ -2,35 +2,37 @@
 
 Etapas de instalação do FreeBSD
 
-1.1 Instalar o FreeBSD
-2.2 Atualizar e instalar o /var/ports
-2.3  - portsnap fetch update
-2.4  - portsnap fetch extract
+1.1   - Instalar o FreeBSD
+2.2   - Atualizar e instalar o /var/ports
+2.3   - portsnap fetch update
+2.4   - portsnap fetch extract
 
-3.1 Instalar o subversion
-3.2  - cd /usr/ports/devel/subversion
+3.1   - Instalar o subversion
+3.2   - cd /usr/ports/devel/subversion
+3.3   - exit
 
-4.1 Pegar o source
-4.2  - exit
-4.3  - cd /usr
-4.4  - mv src src-old
-4.5  - svn co http://svn.freebsd.org/base/stable/9 stable-9
-4.6  - ln -s stable-9 src
+4.1   - Pegar o source
+4.3   - cd /usr
+4.4   - mv src src-old
+4.5   - svn co http://svn.freebsd.org/base/stable/9 stable-9
+4.6   - ln -s stable-9 src
 
-5.0 Compilar o mundo
-5.1  - cd src
-5.2  - make -j4 buildworld
+5.0   - Compilar o mundo
+5.1   - cd src
+5.2   - make -j4 buildworld
 
-6.0 Compilar o kernel antes de instalar qualquer pacote porque no current as vezes muda as versões.
-6.1  - make buildkernel
-6.2  - make installkernel
-6.3  - reboot
+6.0   - Compilar o kernel antes de instalar qualquer pacote porque no current as vezes muda as versões.
+6.1   - make buildkernel
+6.2   - make installkernel
+6.2.1 - se der problema no auditdistd : 
+6.2.2 - pw useradd -n auditdistd -g audit -c "Auditdistd unprivileged user" -d /var/empty -s /usr/sbin/nologin
+6.3   - reboot
 
-7.0 Ajustes finais
-7.1  - cd /usr/src
-7.2  - mergemaster -p
-7.3  - make installworld
-7.4  - mergemaster -iFU
+7.0   - Ajustes finais
+7.1   - cd /usr/src
+7.2   - mergemaster -p
+7.3   - make installworld
+7.4   - mergemaster -iFU
 
 *e ja esta pronto*
 nesse 'checkout' do svn já vem tudo, kernel + base system
