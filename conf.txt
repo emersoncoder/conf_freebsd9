@@ -137,13 +137,12 @@ GRUPOS DE USUARIOS
 vi /etc/group
 colocar o usuario no grupo WHEEL para pegar SUDO
 copiar o .cshrc que esta no ROOT e tambem usar o VIPW para editar o shell do seu usuario.
-
-Configurar o slim.conf no /usr/local/etc 
-tem um arquivo de exemplo que posso dar CP , instalar uns temas do SLIM que posso no SLIM.CONF apontar para ele depois que instala o SLIM-THEMES
-
 Command to add an existing user ("userlogin") to the wheel group:
 $ pw group mod wheel -m userlogin
 
+
+Configurar o slim.conf no /usr/local/etc 
+tem um arquivo de exemplo que posso dar CP , instalar uns temas do SLIM que posso no SLIM.CONF apontar para ele depois que instala o SLIM-THEMES
 
 
 <ebrandi> se for usar o .vim do docbr, so lembra de desligar a linha que faz o sed dos acentos
