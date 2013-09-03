@@ -15,9 +15,12 @@ Etapas de instalação do FreeBSD
 4.3   - cd /usr
 4.4   - mv src src-old
 4.5   - svn co http://svn.freebsd.org/base/stable/9 stable-9
+4.5.1 - svn co svn://svn.freebsd.org/base/head stable-10
 4.6   - ln -s stable-9 src
+4.6.1 - ln -s stable-10 src
 
 5.0   - Compilar o mundo
+5.1   - Adicionar WITH_NEW_XORG=true e WITH_KMS=true no /etc/make.conf.
 5.1   - cd src
 5.2   - make -j4 buildworld
 
