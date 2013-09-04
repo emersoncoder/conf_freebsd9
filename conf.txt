@@ -62,6 +62,20 @@ dumpdev="AUTO"
 ================================
 ################################
 
+DUAL BOOT WINDOWS 
+
+1.0 - Caso exista, remova a partição GPT
+1.0 - No terminal digite sudo fdisk -l
+1.1 - Em seguida digite "sudo parted /dev/<devicename>", usualmente "sudo parted /dev/sda" no caso da hd listada no fdisk.
+1.2 - Dentro do 'parted' digite "mktable": -> Table type: msdos -> Destroy data: yes -> quit
+2.0 - Instale o Windows
+3.0 - Instale o FreeBSD
+4.0 - De boot pelo CD do FreeBSD, clique em shell e digite : boot0cfg -B /dev/ada0 sendo ada0 sua unidade
+5.0 - Pronto
+
+================================
+################################
+
 ATIVAR O SOM
 
 kldload snd_driver
