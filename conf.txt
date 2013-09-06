@@ -253,3 +253,42 @@ depois
 
 ================================
 ################################
+
+Programas essenciais
+
+netbeans
+geany
+chromium
+firefox
+pidgin
+xchat
+git
+apache
+php
+mysql
+
+
+portupgrade -N cups-pdf		     		A virtual printer for CUPS to produce PDF files						Print
+portupgrade -N epdfview					A lightweight PDF document viewer									Graphics
+portupgrade -N firefox-17.0.7,1			Web browser based on the browser portion of Mozilla					Www
+portupgrade -N firefox-i18n-17.0.7		Localized interface for Firefox										Www
+portupgrade -N font-manager				A font management application for the GNOME desktop					X11-fonts
+portupgrade -N geany					A fast and lightweight GTK+ IDE										Devel
+portupgrade -N geeqie					Lightweight image viewer forked from GQview							Graphics
+portupgrade -N gucharmap				A Unicode/ISO10646 character map and font viewer					Deskutils
+portupgrade -N leafpad					GTK+ based simple text editor										Editors
+portupgrade -N mirage					Fast and simple image viewer										Graphics
+portupgrade -N opera-12.15				Blazingly fast, full-featured, standards-compliant browser			Www
+portupgrade -N pcmanfm					PCMan File Manager													X11-fm
+portupgrade -N xfce-4.10_5				The "meta-port" for the XFce 4 desktop environment					X11-wm
+portupgrade -N xfce4-artwork			Additional artwork for the XFce4 desktop environment				Misc
+portupgrade -N xfce4-cpugraph-plugin	Xfce4 systemload plugin with multiple CPU display modes				X11-wm
+portupgrade -N xfce4-mixer				Xfce 4 volume mixer module for xfce4-panel							Audio
+portupgrade -N xfce4-wm-themes			Xfce 4 window decoration themes for xfwm4							Misc
+portupgrade -N xfburn					CD/DVD burning tool for Xfce										Sysutils
+portupgrade -N thunderbird-17.0.7		Mozilla Thunderbird is standalone mail and news that stands above	Mail
+portupgrade -N thunderbird-i18n-17.0.7	Localized interface for Thunderbird									Mail
+portupgrade -N xfe-1.34_1				Fast MS-Explorer like filemanager for X								X11-fm
+
+================================
+################################
