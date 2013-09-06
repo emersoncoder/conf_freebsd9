@@ -208,6 +208,11 @@ git
 apache
 php
 mysql
+xpdf 
+conky
+quantA
+
+
 unrar: /usr/ports/archivers/unrar
 KLaptop medidor de bateria
 Maybe sysutils/xbattbar
@@ -235,22 +240,18 @@ portupgrade -N thunderbird-17.0.7		Mozilla Thunderbird is standalone mail and ne
 portupgrade -N thunderbird-i18n-17.0.7	Localized interface for Thunderbird									Mail
 portupgrade -N xfe-1.34_1				Fast MS-Explorer like filemanager for X								X11-fm
 
+xfce4-battery-plugin/
+xfce4-minicmd-plugin/
+xfce4-settings/
+xfce4-cpugraph-plugin/ 
+xfce4-mount-plugin/   
+xfce4-systemload-plugin/
+xfce4-fsguard-plugin/  
+xfce4-netload-plugin/  
+xfce4-wavelan-plugin/
+xfce4-genmon-plugin/  
+xfce4-power-manager/   
 
-PROGRAMAS
-
-widgets
- - conky 
-
-editores e leitores
- - xpdf 
- - www/quantA
-
-/usr/ports/graphics
-
-som /usr/ports/audio
- - aumix -> controla o som
- - xmms-eq
- - xmms
 
 My recommendation is to forget about suites and just get the tools together that you need:
 
@@ -259,6 +260,18 @@ A web browser, preferably several: Firefox and Opera and Chrome/Chromium (if tha
 A good graphics editor, such as the GIMP. Gozer might come in handy in some cases, too.
 A terminal, of which there are also several to choose from: xterm, aterm, (u)rxvt, Eterm, kterm or even (a) virtual console(s).
 You'll probably want to install some font sets from the ports collection and ttmkfdir so you can use TrueType fonts.
+
+Remark : For Burn CD and DVD with xfburn to add the following lines to the file:
+
+/boot/loader.conf
+
+# Filesystem and related modules
+
+cd9660_load="YES"        # ISO 9660 filesystem
+
+# Driver ATAPI devices
+atapicam_load="YES"      # The use of applications like cdrdao or cdrecord
+
 
 ================================
 ################################
