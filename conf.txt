@@ -3,7 +3,7 @@
 Etapas de instalação do FreeBSD
 
 1.1   - Instalar o FreeBSD
-2.2   - Atualizar e instalar o /var/ports
+2.2   - Atualizar e instalar o ports
 2.3   - portsnap fetch update
 2.4   - portsnap fetch extract
 
@@ -49,15 +49,20 @@ nesse 'checkout' do svn já vem tudo, kernel + base system
 ================================
 ################################
 
-vi /etc/rc.conf
+exemplo de /etc/rc.conf
 
-keymap="br275.iso.kbd"
 hostname="paladin"
-ifconfig_(PLACA DE REDE)="DHCP"
+keymap="br275.iso.acc.kbd"
 wlans_ath0="wlan0"
-ifconfig_wlan0="WPA DHCP"(placa wireless wpa autenticacao e dhcp pegar ip)
-sshd_enale="YES"
-dumpdev="AUTO"
+ifconfig_wlan0="WPA DHCP"
+sshd_enable="YES"
+ntpd_enable="YES"
+powerd_enable="YES"
+# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+dumpdev="NO"
+linux_enable="YES"
+hald_enable="YES"
+dbus_enable="YES"
 
 ================================
 ################################
@@ -94,36 +99,8 @@ mount -t msdosfs /dev/da0s1 /mnt/pendrive
 
 EXCLUIR UM PROGRAMA MAL INSTALADO
 
-pra apagar voce pode voltar no diretorio e fazer um make deinstall
-ou pkg_info
-e pkg_delete nome-do-pacote1.\*
-
-================================
-################################
-
-PROGRAMAS
-
-widgets
- - conky 
-
-editores e leitores
- - xpdf 
- - www/quantA
-
-/usr/ports/graphics
-
-som /usr/ports/audio
- - aumix -> controla o som
- - xmms-eq
- - xmms
-
-My recommendation is to forget about suites and just get the tools together that you need:
-
-A text editor of your choice (vim, emacs, nedit, pico, whatever floats your editing boat).
-A web browser, preferably several: Firefox and Opera and Chrome/Chromium (if that's available for FreeBSD) and if possible MSIE in a VM or on an actual Windows box. And maybe some other less often used ones, too.
-A good graphics editor, such as the GIMP. Gozer might come in handy in some cases, too.
-A terminal, of which there are also several to choose from: xterm, aterm, (u)rxvt, Eterm, kterm or even (a) virtual console(s).
-You'll probably want to install some font sets from the ports collection and ttmkfdir so you can use TrueType fonts.
+make deinstall
+pkg_info e pkg_delete nome-do-pacote1.\*
 
 ================================
 ################################
@@ -138,10 +115,6 @@ editar os shells pelo VIPW
 setxkbmap -model abnt2 -layout br
 variant abnt2 configura o teclado
 
-unrar: /usr/ports/archivers/unrar
-KLaptop medidor de bateria
-Maybe sysutils/xbattbar
-
 A shorter way:
 # make distclean
 
@@ -154,45 +127,14 @@ GRUPOS DE USUARIOS
 vi /etc/group
 colocar o usuario no grupo WHEEL para pegar SUDO
 copiar o .cshrc que esta no ROOT e tambem usar o VIPW para editar o shell do seu usuario.
-Command to add an existing user ("userlogin") to the wheel group:
-$ pw group mod wheel -m userlogin
+pw group mod wheel -m userlogin
 
-
-Configurar o slim.conf no /usr/local/etc 
-tem um arquivo de exemplo que posso dar CP , instalar uns temas do SLIM que posso no SLIM.CONF apontar para ele depois que instala o SLIM-THEMES
 
 
 <ebrandi> se for usar o .vim do docbr, so lembra de desligar a linha que faz o sed dos acentos
 http://forums.freebsd.org/showthread.php?t=32775
 
 ctrl + alt + f2 mata o x
-
-[18:12] <MarconM> como eu faço para instalar o dualboot
-[18:33] *** MarconM changed nick to H3ruS
-[18:42] <Rudolf> H3ruS: sysutils
-
-[18:44] <Rudolf> na instalaÃ§Ã£o do FreeBSD vc nÃ£o colocou o Boot Manager?
-
-[19:17] <egypcio> sysutils nao e' so a categoria?
-[19:17] <egypcio> H3ruS: man boot0cfg
-
-[19:17] <egypcio> se for i386, podes usar grub
-
-[19:17] <egypcio> se for i386, podes usar grub
-[19:18] <egypcio> H3ruS: instalacao nova? ja oferece
-[19:18] <egypcio> depois de vc configurar rede e adicionar usuarios
-[19:18] <egypcio> o bsdinstall pergunta se vc quer configurar mais alguma coisa
-[19:18] <egypcio> cola nas proximas confs. GG.
-[19:18] <H3ruS> boot0cfs -B diskdevice
-[19:18] <H3ruS> egypcio, entendi
-
-[19:21] <egypcio> H3ruS: tu podes tentar outra coisa; buscar algum outro gerenciador de boot que te agrade ae...
-[19:21] <egypcio> cd /usr/ports ; make search name=boot display=name,path
-[19:22] <egypcio> vendo o que aparece e cata infos pelo pkg-descr
-
-
-[19:23] <egypcio> visse o PACKAGEROOT, pra alterar, pala?
-[17:50] <@egypcio> setenv PACKAGEROOT 
 
 ================================
 ################################
@@ -266,6 +208,9 @@ git
 apache
 php
 mysql
+unrar: /usr/ports/archivers/unrar
+KLaptop medidor de bateria
+Maybe sysutils/xbattbar
 
 
 portupgrade -N cups-pdf		     		A virtual printer for CUPS to produce PDF files						Print
@@ -289,6 +234,31 @@ portupgrade -N xfburn					CD/DVD burning tool for Xfce										Sysutils
 portupgrade -N thunderbird-17.0.7		Mozilla Thunderbird is standalone mail and news that stands above	Mail
 portupgrade -N thunderbird-i18n-17.0.7	Localized interface for Thunderbird									Mail
 portupgrade -N xfe-1.34_1				Fast MS-Explorer like filemanager for X								X11-fm
+
+
+PROGRAMAS
+
+widgets
+ - conky 
+
+editores e leitores
+ - xpdf 
+ - www/quantA
+
+/usr/ports/graphics
+
+som /usr/ports/audio
+ - aumix -> controla o som
+ - xmms-eq
+ - xmms
+
+My recommendation is to forget about suites and just get the tools together that you need:
+
+A text editor of your choice (vim, emacs, nedit, pico, whatever floats your editing boat).
+A web browser, preferably several: Firefox and Opera and Chrome/Chromium (if that's available for FreeBSD) and if possible MSIE in a VM or on an actual Windows box. And maybe some other less often used ones, too.
+A good graphics editor, such as the GIMP. Gozer might come in handy in some cases, too.
+A terminal, of which there are also several to choose from: xterm, aterm, (u)rxvt, Eterm, kterm or even (a) virtual console(s).
+You'll probably want to install some font sets from the ports collection and ttmkfdir so you can use TrueType fonts.
 
 ================================
 ################################
