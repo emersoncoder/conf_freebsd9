@@ -231,3 +231,25 @@ e fé em DEUS
 
 ================================
 ################################
+
+Instalação de Fontes TTF e URW
+
+em /etc/X11/xorg.conf dentro de ‘Section “Files”‘ adicione
+FontPath "/usr/local/lib/X11/fonts/URW/"
+adicione em ‘Section “Modules”‘
+Load  "freetype"
+
+depois 
+
+pkg_add -r ttmkfdir
+pkg_add -r  urwfonts
+
+reboot
+
+depois
+
+# cd /usr/local/lib/X11/fonts/TTF/
+# ttmkfdir -o fonts.dir
+
+================================
+################################
